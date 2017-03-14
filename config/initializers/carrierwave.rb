@@ -2,7 +2,7 @@
 
 CarrierWave.configure do |config|
     config.storage = :aws
-    config.aws_bucket = ENV["AWS BUCKET"]
+    config.aws_bucket = ENV["AWS_BUCKET"]
     config.aws_acl = "public-read"
 
     config.aws_credentials = {
