@@ -1,8 +1,10 @@
 <br />
 
 <div class="booyah-box col-10 offset-1">
-    <h1><%= @course.title %></h1>
-    <%= image_tag @course.image, class: 'img-fluid' %>
+    <div class="text-center">
+        <h1><%= @course.title %></h1>
+        <%= image_tag @course.image, class: 'img-fluid' %>
+    </div>
     <br />
        <div class="row">
         <div class="col-sm-4 col-12 text-center">
@@ -16,13 +18,15 @@
                 <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
             <% end %>
         </div>
+        <br />
 
-        <div class="col-sm-8 col-12">
+        <div class="col-sm-6 col-12">
             <%= @course.description %>
         </div>
        </div>
+       <br />
 
-        <div class="col-12">
+        <div class="col-8 offset-2">
             <% @course.sections.each do |section| %>
                 <div class="section">
                 <%= section.title %>
@@ -35,6 +39,7 @@
                     <% end %>
                     </div>
                 <% end %>
+                   <br />
                 </div>         
             <% end %>
         </div>
