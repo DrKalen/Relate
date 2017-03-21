@@ -24,7 +24,7 @@ class EnrollmentsController < ApplicationController
 
       rescue Stripe::CardError => e
         flash[:error] = e.message
-        redirect_to root_path
+        redirect_to root_path, alert: 'There was a problem charging your credit card. (Your card was not charged.)'
     end
 
     private
