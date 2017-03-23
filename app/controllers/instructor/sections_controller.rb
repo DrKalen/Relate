@@ -42,7 +42,7 @@ class Instructor::SectionsController < ApplicationController
         if params[:course_id]
             @current_course ||= Course.find(params[:course_id])
         else
-            current.section.course
+            current_section.course
         end
     end
 
