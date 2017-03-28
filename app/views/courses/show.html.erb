@@ -27,15 +27,10 @@
                         <%if @course.free? %>           
                             <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
                         <% else %>
-                             <%= form_tag course_enrollments_path(@course) do %>
-
-                              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                  data-email="<%= current_user.email %>"
-                                  data-description="<%= @course.title %>(<%= number_to_currency @course.cost %>)"
-                                  data-amount="<%= (@course.cost*100).to_i %>"
-                                  data-locale="auto"></script>
-                          <% end %>
+                            <!-- Button trigger Card Payment Test modal -->
+                            <button type="button" class="btn btn-primary btn-med" data-toggle="modal" data-target="#cardPaymentModal">
+                              Enroll (Test without being charged)
+                            </button>
                     <% end %>
                  <% end %>
             <% else %>
@@ -77,4 +72,42 @@
                 </div>         
             <% end %>
         </div>
+</div>
+
+
+<!-- Card Payment Test Modal -->
+<div class="modal fade" id="cardPaymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="cardPaymentModalLabel">How To Use Test Mode</h4>
+      </div>
+      <div class="modal-body">
+      <p>
+        We're currently  just getting started, so our courses don't have much real content loaded yet. You wouldn't want your credit card to actually be charged, but if you like you can pay in "test mode." That way you will be able to view what we've got so far and see what will be available once we're up and running.
+        </p>
+        <p>
+        To pay in "test Mode," just click the "Pay with Card" button below and enter any real email address and "4242 4242 4242 4242" plus any date and any number for the CCV code. (We won't do anything with the email address, but as you'll see, the credit card processor will keep track of you just as if you had entered a real card, so if you are using the same computer you can enroll for other courses without having to put in the test credit card number again.)
+        </p>
+        <p>
+        Give it a try! For a no-cost test enrollment, just click "Pay with Card," enter any email address, "4242 4242 4242 4242" and any other numbers you like.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                     <%= form_tag course_enrollments_path(@course) do %>
+
+                              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                  data-email="<%= current_user.email %>"
+                                  data-description="<%= @course.title %>(<%= number_to_currency @course.cost %>)"
+                                  data-amount="<%= (@course.cost*100).to_i %>"
+                                  data-locale="auto"></script>
+                          <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>

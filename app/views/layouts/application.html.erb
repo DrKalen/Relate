@@ -18,6 +18,12 @@
           <%= link_to 'Relate!', root_path, class: 'navbar-brand' %>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+              <li>
+                <!-- Button trigger Get Started modal -->
+                <button type="button" class="btn btn-primary btn-med" data-toggle="modal" data-target="#getStartedModal">
+                  Start Here
+                </button>
+              </li>
               <li class="nav-item">
                 <%= link_to 'See All Courses', courses_path, class:'nav-link' %>
               </li>
@@ -65,11 +71,11 @@
                 <div class="col-12 col-sm-3">
                     <b>About</b>
                     <br />
-                    <%= link_to 'Team', '#' %>
+                    <%= link_to 'Founder', 'http://www.drkonline.com/who-is-dr-k' %>
                     <br />
-                    <%= link_to 'Careers', '#' %>
+                    <%= link_to 'Careers', careers_path %>
                     <br />
-                    <%= link_to 'Privacy Policy', '#' %>
+                    <%= link_to 'Privacy Policy', privacy_path %>
                 </div>
                 <div class="col-12 col-sm-3">
                 <b>Contact</b>
@@ -99,3 +105,31 @@
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
   </body>
 </html>
+
+
+<!-- Get Started Modal -->
+<div class="modal fade" id="getStartedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="getStartedModalLabel">Welcome to <i>Relate!</i></h4>
+      </div>
+      <div class="modal-body">
+        <p>
+        <i>Relate!</i> is a portal where you can both learn how to have more fun, alive relationships and teach others what you know. To teach a course, just click the button below or the "Teach a Course" link in the footer at the bottom of the page, sign in, and you're good to go.
+        </p> 
+
+        <p> To learn what others are teaching, click on the button here or the "See All Courses" link at the top of any page. Once you've created a course or enrolled in one, the link to "My Dashboard" will take you to a summary of what you're learning and teaching. Simple! Just click a button and let's get started.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'I want to TEACH a Course', new_instructor_course_path, class: 'btn btn-primary' %>
+        <%= link_to 'I want to TAKE a Course', courses_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
+
