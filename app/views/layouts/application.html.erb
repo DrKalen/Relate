@@ -71,7 +71,11 @@
                 <div class="col-12 col-sm-3">
                     <b>About</b>
                     <br />
-                    <%= link_to 'Founder', 'http://www.drkonline.com/who-is-dr-k' %>
+                    <%= link_to 'Site Creator', 'http://kalenhammann.getforge.io' %>
+                    <br />
+                    <%= link_to 'Site Creator Background', 'http://www.drkonline.com/who-is-dr-k' %>
+                    <br />
+                    <%= link_to 'Blog', 'http://kalenhammann.getforge.io/blog' %>
                     <br />
                     <%= link_to 'Careers', careers_path %>
                     <br />
@@ -85,6 +89,8 @@
                 100 Hampton Rd. #53
                 <br />
                 Clearwater, FL 33759
+                <br />
+                (727) 733-2178
                 </div>
                 <div class="col-12 col-sm-3 social">
                 <b>Social</b>
@@ -95,7 +101,9 @@
                 <%= link_to 'https://www.linkedin.com/in/kalenhammann/' do %>
                     <span class="fa fa-linkedin-square fa-2x social-button"></span>
                 <% end %>
-                <span class="fa fa-twitter-square fa-2x social-button"></span>
+                <%= link_to 'https://github.com/DrKalen/flitter ' do %>
+                <span class="fa fa-github-square fa-2x social-button"></span>
+                <% end %>
                 </div>
             </div>
         </div>
@@ -115,17 +123,22 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title" id="getStartedModalLabel">Welcome to <i>Relate!</i></h4>
+        <h4 class="modal-title text-center" id="getStartedModalLabel">Welcome to <i>Relate!</i></h4>
       </div>
       <div class="modal-body">
         <p>
-        <i>Relate!</i> is a portal where you can both learn how to have more fun, alive relationships and teach others what you know. To teach a course, just click the button below or the "Teach a Course" link in the footer at the bottom of the page, sign in, and you're good to go.
+        <i>Relate!</i> is a portal where you can both learn how to have more fun, alive relationships and teach others what you know. You begin by signing up: just click this button. Then come back here. If you've already signed up, make sure you're logged in and then continue.
         </p> 
-
+        <p class="text-center">
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary' %>
+        <br />
+        <p> Signed up? Logged in? Good! Now, to teach a course, just click the button below or the "Teach a Course" link in the footer at the bottom of the page and you're good to go.
+        </p> 
         <p> To learn what others are teaching, click on the button here or the "See All Courses" link at the top of any page. Once you've created a course or enrolled in one, the link to "My Dashboard" will take you to a summary of what you're learning and teaching. Simple! Just click a button and let's get started.
         </p>
       </div>
       <div class="modal-footer">
+        
         <%= link_to 'I want to TEACH a Course', new_instructor_course_path, class: 'btn btn-primary' %>
         <%= link_to 'I want to TAKE a Course', courses_path, class: 'btn btn-primary' %>
       </div>
