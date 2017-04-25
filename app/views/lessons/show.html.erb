@@ -5,10 +5,19 @@
     <p class="float-left">
         <%= current_lesson.subtitle %>
     </p>
+    <br class="clr" />
+
     <% if current_lesson.next_lesson.present? %>
         <%= link_to lesson_path(current_lesson.next_lesson), class: 'btn btn-default float-right' do %>
             Next Lesson &nbsp;
             <span class="fa fa-forward"></span>
+        <% end %>
+    <% end %>
+
+    <% if current_lesson.previous_lesson.present? %>
+        <%= link_to lesson_path(current_lesson.previous_lesson), class: 'btn btn-default float-left' do %>
+        <span class="fa fa-backward"></span> &nbsp;
+        Previous Lesson
         <% end %>
     <% end %>
 
@@ -19,4 +28,5 @@
   poster="<%= image_path('black.jpg') %>" data-setup="{}">
     <source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
   </video> 
+
 </div>
