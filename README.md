@@ -44,6 +44,9 @@ Introduction to Marketplace:
 Listing of Courses:
 ![SCREENSHOT](../master/app/assets/images/relate_courses_show_page.png)
 
+Log-In Form
+![SCREENSHOT](../master/app/assets/images/relate_log_in_form.png)
+
 Teacher Administer Course Page:
 ![SCREENSHOT](../master/app/assets/images/relate_teacher_administer_page.png)
 
